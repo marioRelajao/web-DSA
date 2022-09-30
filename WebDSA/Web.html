@@ -12,7 +12,19 @@
     <script>
         $(document).ready(function(){
             $("button").click(function(){
-                $("#div1").load("https://api.github.com/users/" + $("#usr").val());
+                $.ajax({
+                    type: 'GET',
+                    url: 'https://api.github.com/users/' + $("#usr").val(),
+                    data: { get_param: 'https://api.github.com/users/' + $("#usr").val() },
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        console.log(data.login);
+                        alert(data.avatar_url);
+
+
+                    }
+                });
             });
         });
     </script>
