@@ -28,6 +28,13 @@
             });
         });
     </script>
+    <script>
+        $(document).on('keypress',function(e) {
+            if(e.which == 13) {
+                $("#div1").load("https://api.github.com/users/" + $("#usr").val());
+            }
+        });
+    </script>
 </head>
 <body>
 <div class="jumbotron jumbotron-fluid">
@@ -40,8 +47,20 @@
 <div class="form-group">
     <label for="usr">Introduzca su nombre de Github : </label>
     <input id="usr">
-    <button>Get External Content</button>
+    <button class="btn btn-secondary">Get External Content</button>
 </div>
+
+<div class="container">
+    <h2>Taula amb les dades de l'usuari</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+    </table>
 
     <div id="div1"></div>
 </body>
