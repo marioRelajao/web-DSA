@@ -14,15 +14,14 @@
             $("button").click(function(){
                 $.ajax({
                     type: 'GET',
-                    url: 'https://api.github.com/users/' + $("#usr").val(),
-                    data: { get_param: 'https://api.github.com/users/' + $("#usr").val() },
+                    url: 'https://api.github.com/users/' + $("#usr").val() + '/repos',
+                    data: { get_param: 'https://api.github.com/users/' + $("#usr").val()} +'/repos',
                     dataType: 'json',
                     success: function (data) {
                         console.log(data);
                         console.log(data.login);
-                        alert(data.avatar_url);
-
-
+                        //alert(data.avatar_url);
+                        alert(data.public_repos);
                     }
                 });
             });
@@ -55,13 +54,28 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Email</th>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Followers</th>
         </tr>
         </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>Patata</td>
+            <td>Programacon de java</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Patata</td>
+            <td>Programacon de java</td>
+            <td>0</td>
+        </tr>
+        </tbody>
     </table>
-
+</div>
     <div id="div1"></div>
 </body>
 </html>
