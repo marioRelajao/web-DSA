@@ -43,6 +43,9 @@
                         var url = '<a href = ';
                         $('#relleno').empty();
                         $.each(data, function (i, item) {
+                            if(item.description == null) {
+                                item.description = "<i>Aquest repositori no te descripció</i>";
+                            }
                             trHTML += '<tr><td>' + item.id + '</td><td>' + url + item.html_url + ' target="_blank">' + item.name + '</a>' + '</td><td>' + item.description + '</td><td>' + item.stargazers_count + '</td></tr>';
                         });
                         $('#relleno').append(trHTML);
